@@ -1,19 +1,20 @@
 from datetime import datetime
 import json
-
+import os
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils.timezone import make_aware
 
 from tracks.models import Track
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class Command(BaseCommand):
     help = 'Create tracks from JSON file'
 
     def handle(self, *args, **kwargs):
         # set the path to the datafile
-        datafile = settings.BASE_DIR / 'data' / 'tracks.json'
-        assert datafile.exists()
+        ##datafile = BASE_DIR /'data' / 'tracks.json'
+        datafile = r'C:\\Users\billyadwar\Documents\DRF\\NinjaREST\djninja\djninja\data\\tracks.json'
+        ##assert datafile.exists()
 
         # load the datafile
         with open(datafile, 'r') as f:
